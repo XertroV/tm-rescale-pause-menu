@@ -1,0 +1,10 @@
+[meta]
+name     = "Rescale Pause Menu"
+author   = "XertroV"
+category = "Utilities"
+version  = "0.0.0"
+siteid   = 359
+
+[script]
+#__DEFINES__
+# dependencies = ["Camera", "VehicleState"]
