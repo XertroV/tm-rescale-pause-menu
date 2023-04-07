@@ -36,7 +36,7 @@ void AwaitGetMLObjs() {
     auto cmap = net.ClientManiaAppPlayground;
     while (cmap.UILayers.Length < 7) yield();
     while (MainMLFrame is null) {
-        yield();
+        sleep(100);
         for (uint i = 0; i < cmap.UILayers.Length; i++) {
             auto layer = cmap.UILayers[i];
             if (!layer.IsLocalPageScriptRunning || !layer.IsVisible || layer.LocalPage is null) continue;
@@ -54,8 +54,9 @@ void AwaitGetMLObjs() {
             }
         }
         count++;
-        if (MainMLFrame is null && count < 10) trace('not found');
-        if (count > 10) {
+        trace('' + count + ', ' + (MainMLFrame is null ? 'not found' : 'found'));
+        // if (MainMLFrame is null && count < 10) trace('not found');
+        if (count > 50) {
             warn('ML not found, not updating ML props');
             return;
         }
