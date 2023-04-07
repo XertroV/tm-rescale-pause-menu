@@ -35,6 +35,7 @@ void AwaitGetMLObjs() {
     if (net.ClientManiaAppPlayground is null) throw('null cmap');
     auto cmap = net.ClientManiaAppPlayground;
     while (cmap.UILayers.Length < 7) yield();
+    count = 0;
     while (MainMLFrame is null) {
         sleep(100);
         for (uint i = 0; i < cmap.UILayers.Length; i++) {
