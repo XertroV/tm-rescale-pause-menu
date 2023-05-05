@@ -36,8 +36,8 @@ void AwaitGetMLObjs() {
     auto cmap = net.ClientManiaAppPlayground;
     while (cmap.UILayers.Length < 7) yield();
     count = 0;
-    while (MainMLFrame is null) {
-        sleep(100);
+    while (net.ClientManiaAppPlayground !is null && MainMLFrame is null) {
+        sleep(20);
         for (uint i = 0; i < cmap.UILayers.Length; i++) {
             auto layer = cmap.UILayers[i];
             if (!layer.IsLocalPageScriptRunning || !layer.IsVisible || layer.LocalPage is null) continue;
@@ -66,7 +66,8 @@ void AwaitGetMLObjs() {
 }
 
 void UpdateManialinkProps() {
-    if (MainMLFrame is null) throw('unexpected null MainMLFrame');
+    if (MainMLFrame is null)
+        return;
     MainMLFrame.RelativeScale = S_MenuScale;
     if (MainMLFrame.ControlId == "frame-global") {
         // if we're in PlayMap menu, then we need to upscale non-menu elements
