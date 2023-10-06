@@ -81,6 +81,8 @@ void UpdateManialinkProps() {
 }
 
 void ResetManialinkToDefaults() {
+    auto app = GetApp();
+    if (app is null || app.CurrentPlayground is null) @MainMLFrame = null;
     if (MainMLFrame is null) return;
     MainMLFrame.RelativeScale = 1.0;
     if (MainMLFrame.ControlId == "frame-global") {
