@@ -2,7 +2,7 @@
 name     = "Rescale Pause Menu"
 author   = "XertroV"
 category = "Utilities"
-version  = "0.1.3"
+version  = "0.2.0"
 siteid   = 359
 
 [script]
